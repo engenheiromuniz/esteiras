@@ -11,9 +11,8 @@ jobs:
       - name: "Primeira ação"
         run: echo "Hello Wold - Muniz!!!"
       - name: "Segunda ação"  
-        run: |
-          echo: "Voilà, termos o primeiro Workflow"
-          echo: "Parabéns"
+        run: 
+          echo "Voilâ, temos um workflow. Parabẽns!!!"
           
 
           
