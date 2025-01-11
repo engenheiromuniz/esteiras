@@ -17,7 +17,17 @@ jobs:
         run: |
           variavel = "---- Muniz = 47 ----"
           print(variavel)
-        shell: python
+        shell: python        
+  segundo-job: 
+    name: "Instalação do Ambiente NodeJS"
+    runs-on: ubuntu-latest 
+    steps:
+      - name: "Verificação da versão do NodeJS atual"
+        run: node --version
+        
+    
+        
+        
 
         
         
