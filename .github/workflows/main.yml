@@ -6,7 +6,7 @@ on:
 jobs: 
   primeiro-job: 
     name: "Meu primeiro Job"
-    runs-on: ubunu-latest
+    runs-on: ubuntu-latest
     steps: 
       - name: "Primeira ação"
         run: echo "Hello Wold - Muniz!!!"
