@@ -13,6 +13,14 @@ jobs:
       - name: "Segunda ação"  
         run: 
           echo "Voilâ, temos um workflow. Parabẽns!!!"
+      - name: "Script Python"
+        run: |
+          variavel = "---- Muniz = 47 ----"
+          print(variavel)
+        shell: python
+
+        
+        
           
 
           
