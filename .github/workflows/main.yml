@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: "Primeira ação"
-        run: echo "Hello Wold - Muniz!!!"
+        run: echo "Hello World - Muniz!!!"
       - name: "Segunda ação"  
         run: 
           echo "Voilâ, temos um workflow. Parabẽns!!!"
