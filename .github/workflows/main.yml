@@ -19,8 +19,15 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-        cache: maven # Economiza tempo salvando o cache para próximos deploys
+        cache: maven
 
-    # 3. Compila a aplicação inteira e roda os testes automáticos
+    # 3. Compila a aplicação inteira e roda os testes automáticos (CI)
     - name: Compilar e Testar com Maven
       run: mvn clean package
+
+    # 4. PEGAR O RESULTADO COMPILADO E GUARDAR NO GITHUB (Simulando o CD)
+    - name: Salvar o arquivo JAR gerado
+      uses: actions/upload-artifact@v4
+      with:
+        name: api-java-pronta
+        path: target/*.jar
