@@ -1,43 +1,26 @@
-name: primeira_pipeline
-on: 
-  push: 
-    branches: ["main"]
-  workflow_dispatch:   
-jobs: 
-  primeiro-job: 
-    name: "Meu primeiro Job"
+name: Pipeline CI/CD Java
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
     runs-on: ubuntu-latest
-    steps: 
-      - name: "Primeira ação"
-        run: echo "Hello World - Muniz!!!"
-      - name: "Segunda ação"  
-        run: 
-          echo "Voilâ, temos um workflow. Parabẽns!!!"
-      - name: "Script Python"
-        run: |
-          variavel = "---- Muniz = 47 ----"
-          print(variavel)
-        shell: python        
-  segundo-job: 
-    name: "Instalação do Ambiente NodeJS"
-    runs-on: ubuntu-latest 
+
     steps:
-      - name: "Verificação da versão do NodeJS atual"
-        run: node --version
-      - name: "Definição da versão 20.13.1 do NodeJS"  
-        uses: actions/setup-node@v4.0.2
-        with:
-          node-version: '20.13.1'
-      - name: 'Nova verificação do NodeJS depois da atualização'   
-        run: node --version
-        
-    
-        
-        
+    # 1. O GitHub baixa o código do seu repositório na máquina virtual dele
+    - name: Copiar codigo do repositorio
+      uses: actions/checkout@v4
 
-        
-        
-          
+    # 2. Prepara o ambiente com o Java 17 instalado de forma oficial
+    - name: Instalar Java 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven # Economiza tempo salvando o cache para próximos deploys
 
-          
-          
+    # 3. Compila a aplicação inteira e roda os testes automáticos
+    - name: Compilar e Testar com Maven
+      run: mvn clean package
